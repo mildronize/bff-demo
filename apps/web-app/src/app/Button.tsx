@@ -1,4 +1,5 @@
 import { css } from '@emotion/react';
+import moment from "moment";
 
 export default function Button({toggle,onClick}: { toggle?: boolean, onClick?: any}) {
   const color = toggle ? 'hsla(214, 62%, 21%, 1)': 'gray';
@@ -8,7 +9,7 @@ export default function Button({toggle,onClick}: { toggle?: boolean, onClick?: a
         background-color: ${color};
         border: 1px solid ${color};
     `} onClick={onClick}>
-        {toggle?`ON`:`OFF`}
+        {toggle?`ON`:`OFF`} {moment().format('MMMM Do YYYY, h:mm:ss a')}
     </button>
   );
 }
