@@ -21,6 +21,7 @@ specifiers:
   '@nrwl/web': 15.2.4
   '@nrwl/workspace': 15.2.4
   '@testing-library/react': 13.4.0
+  '@trpc/server': ^10.4.3
   '@types/jest': 28.1.1
   '@types/node': 18.7.1
   '@types/react': 18.0.20
@@ -58,6 +59,7 @@ dependencies:
   '@nestjs/common': 9.2.1_whg6pvy6vwu66ypq7idiq2suxq
   '@nestjs/core': 9.2.1_ajc4cvdydchgvxyi4xnoij5t4i
   '@nestjs/platform-express': 9.2.1_hjcqpoaebdr7gdo5hgc22hthbe
+  '@trpc/server': 10.4.3
   core-js: 3.26.1
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
@@ -3091,6 +3093,10 @@ packages:
     resolution: {integrity: sha512-XCuKFP5PS55gnMVu3dty8KPatLqUoy/ZYzDzAGCQ8JNFCkLXzmI7vNHCR+XpbZaMWQK/vQubr7PkYq8g470J/A==}
     engines: {node: '>= 10'}
     dev: true
+
+  /@trpc/server/10.4.3:
+    resolution: {integrity: sha512-U+TVFtMUnySUfKHXjdpdZdFS268naGafbjQiG/H7t0OKpiLnbJ4IhgyYzj82Hvghb6Ow9E+UTNt6ALP7KoN4/g==}
+    dev: false
 
   /@trysound/sax/0.2.0:
     resolution: {integrity: sha512-L7z9BgrNEcYyUYtF+HaEfiS5ebkh9jXqbszz7pC0hRBPaatV0XjSD3+eHrpqFemQfgwiFF0QPIarnIihIDn7OA==}
