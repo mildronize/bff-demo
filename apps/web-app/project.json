@@ -41,7 +41,6 @@
           "namedChunks": false,
           "extractLicenses": true,
           "vendorChunk": false,
-          "deployUrl": "{{DEPLOY_URL}}/",
           "webpackConfig": "apps/web-app/webpack.config.prod.js"
         }
       }
