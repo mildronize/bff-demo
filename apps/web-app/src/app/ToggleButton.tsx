@@ -4,25 +4,32 @@ import { delay } from 'rxjs/operators';
 // import Button from "./Button";
 const Button = React.lazy(() => import('./Button'));
 
+const globalState = 'globalState';
 const key = 'toggle';
+
+if (window[globalState] === undefined) {
+  window[globalState] = {
+    toggle: false
+  };
+}
 
 export default function ToggleButton({ title }: { title: string }) {
   const [toggle, setToggle] = React.useState(false);
 
-  // https://stackoverflow.com/questions/40393703/rxjs-observable-angular-2-on-localstorage-change
+  // UseEffect call Twice in dev mode: https://stackoverflow.com/questions/60618844/react-hooks-useeffect-is-called-twice-even-if-an-empty-array-is-used-as-an-ar
   React.useEffect(() => {
-    const event = fromEvent(window, 'storage');
-    event.pipe(delay(300)).subscribe(() => {
-      console.log(localStorage.getItem(key));
-      setToggle(localStorage.getItem(key) === 'true' ? true : false);
+    const event = fromEvent(window, globalState);
+    event.pipe(delay(100)).subscribe((event) => {
+      console.log(window[globalState], 'from ', title);
+      setToggle(window[globalState][key] as boolean);
     });
   }, []);
 
   const handleToggle = () => {
     const nextValue = !toggle;
     setToggle(nextValue);
-    localStorage.setItem(key, nextValue ? 'true' : 'false');
-    window.dispatchEvent(new Event('storage'));
+    window[globalState][key] = nextValue;
+    window.dispatchEvent(new Event(globalState));
   };
 
   return (
