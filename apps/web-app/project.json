@@ -1,0 +1,23 @@
+{
+  "name": "web-app",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/web-app/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "tsc && vite build",
+        "cwd": "./apps/web-app"
+      }
+    },
+    "serve": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "vite",
+        "cwd": "./apps/web-app"
+      }
+    }
+  },
+  "tags": []
+}
