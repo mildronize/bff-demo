@@ -1,3 +1,4 @@
-import { isEven } from 'is-even';
+import { isEven } from '@bff-demo/is-even';
+
 
 export const isOdd = (x: number) => !isEven(x);

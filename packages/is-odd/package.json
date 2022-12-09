@@ -1,13 +1,13 @@
 {
-    "name": "is-odd",
+    "name": "@bff-demo/is-odd",
     "version": "0.0.0",
     "main": "dist/index.js",
     "devDependencies": {},
     "scripts": {
-      "build": "tsc index.ts --outDir dist"
+      "build": "tsc -p tsconfig.json"
     },
     "dependencies": {
-      "is-even": "*"
+      "@bff-demo/is-even": "workspace:*"
     }
   }
   

@@ -1,5 +1,5 @@
 {
-    "name": "is-even",
+    "name": "@bff-demo/is-even",
     "version": "0.0.0",
     "main": "dist/index.js",
     "devDependencies": {},
