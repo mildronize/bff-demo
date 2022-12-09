@@ -14,7 +14,7 @@
     "serve": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "vite",
+        "commands": ["vite", "tsc -w --preserveWatchOutput"],
         "cwd": "./apps/web-app"
       }
     }
