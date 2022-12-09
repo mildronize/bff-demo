@@ -25,7 +25,7 @@ export default defineConfig({
     // outDir,
     rollupOptions: {
       input: {
-        // index: resolve(root, 'index.html'),
+        main: resolve(root, 'index.html'),
         app1: resolve(root, 'app/app1/index.html'),
         app2: resolve(root, 'app/app2/index.html'),
       }
