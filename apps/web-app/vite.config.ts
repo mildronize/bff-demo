@@ -1,43 +1,25 @@
-/// <reference types="vitest" />
-import { defineConfig } from 'vite';
-import { resolve } from 'path';
-import react from '@vitejs/plugin-react';
-import tsconfigPaths from 'vite-tsconfig-paths';
+import { defineConfig } from 'vite'
+import { resolve } from 'path'
+import react from '@vitejs/plugin-react'
 
+const root = resolve(__dirname, 'src')
+const outDir = resolve(__dirname, '../../dist/apps/web-app')
 
-const root = resolve(__dirname, 'src');
-
+// https://vitejs.dev/config/
 export default defineConfig({
   root,
   server: {
     port: 4200,
-    host: 'localhost',
   },
-  plugins: [
-    react(),
-    tsconfigPaths({
-      root: '../../',
-      projects: ['tsconfig.base.json'],
-    }),
-  ],
-
+  plugins: [react()],
   build: {
-    // outDir,
+    outDir,
+    emptyOutDir: true,
     rollupOptions: {
       input: {
         main: resolve(root, 'index.html'),
-        app1: resolve(root, 'app/app1/index.html'),
-        app2: resolve(root, 'app/app2/index.html'),
+        about: resolve(root, 'about', 'index.html'),
       }
     }
-  },
-
-  test: {
-    globals: true,
-    cache: {
-      dir: '../../node_modules/.vitest',
-    },
-    environment: 'jsdom',
-    include: ['src/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
-  },
-});
+  }
+})
