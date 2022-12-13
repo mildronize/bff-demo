@@ -5,46 +5,17 @@
   "projectType": "application",
   "targets": {
     "build": {
-      "executor": "@nrwl/vite:build",
-      "outputs": ["{options.outputPath}"],
-      "defaultConfiguration": "production",
+      "executor": "nx:run-commands",
       "options": {
-        "outputPath": "dist/apps/web-app"
-      },
-      "configurations": {
-        "development": {},
-        "production": {}
+        "command": "tsc && vite build",
+        "cwd": "./apps/web-app"
       }
     },
     "serve": {
-      "executor": "@nrwl/vite:dev-server",
-      "defaultConfiguration": "development",
+      "executor": "nx:run-commands",
       "options": {
-        "buildTarget": "web-app:build"
-      },
-      "configurations": {
-        "development": {
-          "buildTarget": "web-app:build:development",
-          "hmr": true
-        },
-        "production": {
-          "buildTarget": "web-app:build:production",
-          "hmr": false
-        }
-      }
-    },
-    "test": {
-      "executor": "@nrwl/vite:test",
-      "outputs": ["{projectRoot}/coverage"],
-      "options": {
-        "passWithNoTests": true
-      }
-    },
-    "lint": {
-      "executor": "@nrwl/linter:eslint",
-      "outputs": ["{options.outputFile}"],
-      "options": {
-        "lintFilePatterns": ["apps/web-app/**/*.{ts,tsx,js,jsx}"]
+        "commands": ["vite", "tsc -w --preserveWatchOutput"],
+        "cwd": "./apps/web-app"
       }
     }
   },
